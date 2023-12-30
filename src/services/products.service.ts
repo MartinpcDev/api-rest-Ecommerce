@@ -10,3 +10,8 @@ export const postItem = async (item: Product): Promise<Product | null> => {
   const responseItem = await ProductModel.create(item)
   return responseItem
 }
+
+export const getItemById = async (id: string): Promise<Product | null> => {
+  const responseItem = await ProductModel.findOne({ _id: id })
+  return responseItem
+}

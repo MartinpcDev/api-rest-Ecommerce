@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { sendError, sendSuccess } from "../utils/handleMessage";
-import { getAllItems, postItem } from "../services/products.service";
+import { getAllItems, getItemById, postItem } from "../services/products.service";
 
 export const getAllProductos = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -11,9 +11,11 @@ export const getAllProductos = async (req: Request, res: Response): Promise<void
   }
 }
 
-export const getProductById = (req: Request, res: Response) => {
+export const getProductById = async ({ params }: Request, res: Response) => {
   try {
-    sendSuccess(res, { item: `item con id: ${req.params.id}` })
+    const { id } = params
+    const response = await getItemById(id)
+    sendSuccess(res, response)
   } catch (error) {
     sendError(res, 'No se pudo encontrar el producto', 404)
   }
