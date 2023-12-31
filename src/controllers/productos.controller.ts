@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { sendError, sendSuccess } from "../utils/handleMessage";
-import { getAllItems, getItemById, postItem } from "../services/products.service";
+import { deleteItem, editItem, getAllItems, getItemById, postItem } from "../services/products.service";
 
 export const getAllProductos = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -27,5 +27,25 @@ export const postProduct = async ({ body }: Request, res: Response): Promise<voi
     sendSuccess(res, response, 201)
   } catch (error) {
     sendError(res, 'No se pudo insertar el producto')
+  }
+}
+
+export const editProduct = async ({ params, body }: Request, res: Response) => {
+  try {
+    const { id } = params
+    const response = await editItem(id, body)
+    sendSuccess(res, response)
+  } catch (error) {
+    sendError(res, 'No se pudo editar el producto', 404)
+  }
+}
+
+export const deleteProduct = async ({ params }: Request, res: Response) => {
+  try {
+    const { id } = params
+    const response = await deleteItem(id)
+    sendSuccess(res, response)
+  } catch (error) {
+    sendError(res, 'No se pudo encontra el producto', 404)
   }
 }
