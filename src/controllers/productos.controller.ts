@@ -46,6 +46,6 @@ export const deleteProduct = async ({ params }: Request, res: Response) => {
     const response = await deleteItem(id)
     sendSuccess(res, response)
   } catch (error) {
-    sendError(res, 'No se pudo encontra el producto', 404)
+    sendError(res, 'No se pudo encontrar el producto', 404)
   }
 }
