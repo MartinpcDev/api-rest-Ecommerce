@@ -12,9 +12,9 @@ const ProductSchema = new Schema<Product>(
       type: String,
       required: true
     },
-    images: {
-      type: [String],
-      required: false
+    image: {
+      type: String,
+      required: true
     },
     price: {
       type: Number,

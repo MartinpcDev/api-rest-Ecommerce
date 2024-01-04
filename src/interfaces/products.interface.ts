@@ -1,7 +1,7 @@
 export interface Product{
   title: string
   description: string
-  images: string[]
+  image: string
   price: number
   stock: boolean
 }
