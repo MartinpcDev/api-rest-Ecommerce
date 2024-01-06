@@ -1,4 +1,4 @@
-import { Product } from "../interfaces/products.interface";
+import { Product } from "../interfaces";
 import { Schema, model } from "mongoose";
 
 
