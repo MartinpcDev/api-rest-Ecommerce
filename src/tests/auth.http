@@ -1,0 +1,21 @@
+### Get users
+GET http://localhost:5000/api/v1/auth
+
+### Register user
+POST http://localhost:5000/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "email": "angel@hotmail.com",
+  "password": "angelusuario1",
+  "direccion": "direccion angel"
+}
+
+### Login 
+POST http://localhost:5000/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email" : "angel@hotmail.com",
+  "password": "angelusuario1"
+}

@@ -2,7 +2,7 @@
 GET http://localhost:5000/api/v1/productos
 
 ### Get product ID
-GET http://localhost:5000/api/v1/productos/6590b1a5724f74672e1ac103
+GET http://localhost:5000/api/v1/productos/6596eb188c3d72bbc3818e34
 
 ### Delete product
 DELETE http://localhost:5000/api/v1/productos/658e18d5a1cedb9d56a3372e
